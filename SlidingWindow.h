@@ -24,16 +24,16 @@ int MaxKSegmentSum(int k, vector<int> v) {
 int MaxSubstringWithoutRepetition(string s) {
     int n = s.size();
     int best_length = 0;
-    vector<bool> in_window(256, false);
+    bool in_window[26];
 
     int left = 0;
     for (int right = 0; right < n; ++right) {
-        while (in_window[s[right]]) {
-            in_window[s[left]] = false;
+        while (in_window[s[right] - 'a']) {
+            in_window[s[left] - 'a'] = false;
             left++;
         }
             
-        in_window[s[right]] = true;
+        in_window[s[right] - 'a'] = true;
             
         best_length = max(best_length, right - left + 1);
     }

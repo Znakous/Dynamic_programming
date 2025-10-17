@@ -10,7 +10,7 @@ vector<int> prices;
 
 vector<vector<int>> cur_best;
 
-void Precalc(int num_elements, int capacity) {
+void FindAns(int num_elements, int capacity) {
     cur_best = vector<vector<int>>(num_elements + 1, vector<int>(capacity + 1, 0));
     for (int i = 0; i < capacity + 1; i++) {
         cur_best[0][i] = 0;
@@ -27,9 +27,18 @@ void Precalc(int num_elements, int capacity) {
             }
         }
     }
+    // просто вывод таблицы, удалите если сбивает с толку
+    for (auto el : cur_best) {
+        for (auto p : el) {
+            cout << p << " ";
+        }
+        cout << endl;
+    }
 }
 
 vector<pair<int, int>> elements;
+
+
 void FindElements(int cur_ind, int cur_capacity) {
     if (cur_best[cur_ind][cur_capacity] == 0) {
         return;
@@ -43,6 +52,6 @@ void FindElements(int cur_ind, int cur_capacity) {
 }
 
 void SolveKnapsack(int capacity) {
-    Precalc(weights.size(), capacity);
+    FindAns(weights.size(), capacity);
     FindElements(weights.size(), capacity);
 }

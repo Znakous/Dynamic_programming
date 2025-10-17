@@ -4,6 +4,8 @@
 
 using namespace std;
 
+
+// следующая пара
 string LCS(string a, string b) {
     int m = a.size();
     int n = b.size();
