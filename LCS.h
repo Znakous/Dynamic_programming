@@ -5,15 +5,23 @@
 using namespace std;
 
 
-// следующая пара
+// Наибольшая общая подстрока
 string LCS(string a, string b) {
-    int m = a.size();
-    int n = b.size();
+    int n = a.size();
+    int m = b.size();
     
-    vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
-    
-    for (int i = 1; i <= m; i++) {
-        for (int j = 1; j <= n; j++) {
+    vector<vector<int>> dp(n + 1, vector<int>(m + 1));
+
+    // база
+    for (int i = 1; i <= m; ++i)
+        dp[i][0] = 0;
+
+    for (int j = 1; j <= n; ++j)
+        dp[0][j] = 0;
+
+    // индукция
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
             if (a[i - 1] == b[j - 1]) {
                 dp[i][j] = dp[i - 1][j - 1] + 1;
             } else {
@@ -21,9 +29,10 @@ string LCS(string a, string b) {
             }
         }
     }
+    int ans = dp[n][m];
 
-    int ans = dp[m][n];
-    int cur_m = m, cur_n = n;
+    // восстановление ответа
+    int cur_m = n, cur_n = m;
     string lcs;
     while (cur_m >= 0 && cur_n >= 0) {
         if (a[cur_m - 1] == b[cur_n - 1]) {

@@ -10,4 +10,6 @@ add_executable(Dynamic_programming
         main.cpp
         SlidingWindow.h
         LCS.h
-        Fibonacci.h)
+        Fibonacci.h
+        LIS.h
+        Levenstein.h)
