@@ -17,3 +17,10 @@ g++ main.cpp && ./a.out
 g++ main.cpp && .\a.exe
 ```
 (Вместо g++ имя вашего компилятора)
+## Полезные линки
+### Leetcode
+[задача НВП](https://leetcode.com/problems/longest-increasing-subsequence/description/)
+
+[задача о редакционном расстоянии](https://leetcode.com/problems/edit-distance/description/)
+
+[задача НОП](https://leetcode.com/problems/longest-common-subsequence/description/)
