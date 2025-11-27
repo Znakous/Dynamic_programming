@@ -12,9 +12,9 @@ void FibonacciDemo() {
 }
 
 void KnapsackDemo() {
-    weights = {1, 2, 3, 4};
-    prices = {1, 2, 3, 7};
-    SolveKnapsack(5);
+    weights = {2, 1, 4, 1};
+    prices = {2, 1, 7, 3};
+    SolveKnapsack(4);
 
     // вывод элементов, которые взяли
     for (auto el : elements) {
@@ -34,7 +34,7 @@ void LCSDemo() {
 }
 
 void LISDemo() {
-    vector<int> nums = {10,9,2,5,3,7,101,18};
+    vector<int> nums = {2, 3, 1, 7, 2, 8, 5, 10, 100, 6};
     cout << LIS(nums);
 }
 void LevDistanceDemo() {
@@ -50,5 +50,5 @@ int main() {
     // SlidingWindowDemo();
     // LCSDemo();
     // LISDemo();
-    LevDistanceDemo();
+    // LevDistanceDemo();
 }

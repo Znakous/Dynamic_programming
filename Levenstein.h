@@ -17,21 +17,20 @@ int LevDistance(string& s1, string& s2,
 
     // база
     for (int i = 1; i <= n; ++i)
-        dp[i][0] = i;
+        dp[i][0] = i * del;
 
     for (int j = 1; j <= m; ++j)
-        dp[0][j] = j;
+        dp[0][j] = j * ins;
 
-    // индукция
     for (int i = 1; i <= n; ++i)
         for (int j = 1; j <= m; ++j)
-            if (s1[i - 1] == s2[j - 1]) // если совпала буква
-                dp[i][j] = dp[i - 1][j - 1];// то переход бесплатный
+            if (s1[i - 1] == s2[j - 1])
+                dp[i][j] = dp[i - 1][j - 1];
             else
                 dp[i][j] = min({
-                    dp[i - 1][j - 1] + ch, // либо заменили
-                    dp[i - 1][j] + ins, // либо добавили 
-                    dp[i][j - 1] + del // либо удалили
+                    dp[i - 1][j - 1] + ch,
+                    dp[i - 1][j] + del,
+                    dp[i][j - 1] + ins
                 });
     return dp[n][m];
 }
